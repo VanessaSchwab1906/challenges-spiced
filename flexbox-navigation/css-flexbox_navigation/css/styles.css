@@ -23,6 +23,20 @@ ul {
   background-color: #f3f5f9;
 }
 
+.navigation__menu {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+/* .navigation__menu :nth-child(1) {
+  order: 3;
+}
+
+.navigation__menu :nth-child(4) {
+  order: 1;
+} */
+
 .navigation__link {
   background-color: #ff4a11;
   color: #ffffff;
