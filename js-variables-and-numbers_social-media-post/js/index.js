@@ -13,7 +13,7 @@ console.clear();
 
 const title = "Social Media Post";
 const text = "This is a Social Media Post";
-const numberOfLikes = 100;
+let numberOfLikes = 100;
 const user = "Vanessa1906";
 const isReported = false;
 
@@ -30,5 +30,11 @@ console.log("Text:", text);
 console.log("Number of Likes:", numberOfLikes);
 console.log("User:", user);
 console.log("Is reported:", isReported);
+
+numberOfLikes += 1;
+console.log("Number of likes increased by 1: ", numberOfLikes);
+
+numberOfLikes += 1;
+console.log("Number of likes increased by 1: ", numberOfLikes);
 
 // --^-- write your code here --^--
