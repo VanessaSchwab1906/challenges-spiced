@@ -28,7 +28,7 @@ fruits[0] = "mango";
 
 const nestedNumbers = [10, [20, 30, [40, 50]]];
 
-const nestedNumber = nestedNumbers[2][0];
+const nestedNumber = nestedNumbers[1][2][0];
 
 // EXERCISE 6
 // Put "rat" onto the end of petsWithPush variable by using the array method `.push()`.
