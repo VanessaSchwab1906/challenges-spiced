@@ -8,12 +8,21 @@ const outputSection = document.querySelector('[data-js="output-section"]');
 
 const output = document.querySelector('[data-js="output"]');
 
+// let pizzaSize1 = 20;
+// let pizzaSize2 = 25;
+
 pizzaInput1.addEventListener("input", () => {
   // write your code here
+  pizzaSize1 = pizzaInput1.value;
+  updatePizzaDisplay(pizza1, pizzaSize1);
+  updateOutputColor(pizzaSize1, pizzaSize2);
 });
 
 pizzaInput2.addEventListener("input", () => {
   // write your code here
+  pizzaSize2 = pizzaInput2.value;
+  updatePizzaDisplay(pizza2, pizzaSize2);
+  updateOutputColor(pizzaSize1, pizzaSize2);
 });
 
 // Task 1
@@ -34,16 +43,16 @@ pizzaInput2.addEventListener("input", () => {
 
 function calculatePizzaGain(diameter1, diameter2) {
   let area1 = Math.PI * (diameter1 / 2) * (diameter1 / 2);
-  console.log(area1);
 
   let area2 = Math.PI * (diameter2 / 2) * (diameter2 / 2);
-  console.log(area2);
 
   let relativeGain = ((area2 - area1) / area1) * 100;
-  console.log(relativeGain);
+
+  let roundedGainValue = Math.round(relativeGain);
+  output.innerHTML = roundedGainValue;
 }
 
-calculatePizzaGain(12, 15);
+calculatePizzaGain(20, 40);
 
 // Task 2
 
@@ -61,6 +70,8 @@ calculatePizzaGain(12, 15);
 
 function updatePizzaDisplay(pizzaElement, newSize) {
   // write your code here
+  let displaySize = (newSize / 24) * 100;
+  pizzaElement.style.width = displaySize + "px";
 }
 
 // Task 3
@@ -77,4 +88,9 @@ function updatePizzaDisplay(pizzaElement, newSize) {
 
 function updateOutputColor(size1, size2) {
   // write your code here
+  if (size1 > size2) {
+    outputSection.style.backgroundColor = "var(--red)";
+  } else {
+    outputSection.style.backgroundColor = "var(--green)";
+  }
 }
