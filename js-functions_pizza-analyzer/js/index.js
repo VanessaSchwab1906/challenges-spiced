@@ -33,25 +33,47 @@ pizzaInput2.addEventListener("input", () => {
 // 6. Now call the function and pass in the two pizza sizes as the arguments.
 
 function calculatePizzaGain(diameter1, diameter2) {
-  console.log(
-    "area of pizza 1 is:",
-    Math.PI * (diameter1 / 2) * (diameter1 / 2)
-  );
-  console.log(
-    "area of pizza 2 is:",
-    Math.PI * (diameter2 / 2) * (diameter2 / 2)
-  );
+  let area1 = Math.PI * (diameter1 / 2) * (diameter1 / 2);
+  console.log(area1);
+
+  let area2 = Math.PI * (diameter2 / 2) * (diameter2 / 2);
+  console.log(area2);
+
+  let relativeGain = ((area2 - area1) / area1) * 100;
+  console.log(relativeGain);
 }
 
 calculatePizzaGain(12, 15);
 
 // Task 2
 
+// ### 2 Change pizza dipslay sizes
+
+// Great! Now we know how much pizza we gain if we choose the second pizza. But we don't have any visual relations between these two numbers. So lets adapt the pizza displays.
+
+// 1. Write a function `updatePizzaDisplay` which has two parameters: `pizzaElement` - the queried DOM element of the respective pizza and `newSize` which is the new size of that pizza.
+// 2. Calculate the new display size of the pizza element
+//    > 💡 The formula is: `newSize / 24 * 100`.
+// 3. Set the width of the `pizzaElement` to this new value.
+//    > 💡 You can use `pizzaElement.style.width` for that.
+//    > 💡 The width needs a unit, a simple number is not enough. Don't forget to concat "px" to your calculated number.
+// 4. Call this function in both event listeners and pass in the correct pizza element and the correct pizza size.
+
 function updatePizzaDisplay(pizzaElement, newSize) {
   // write your code here
 }
 
 // Task 3
+
+// ### 3 Extra: Change the Output Background
+
+// Let's update the background of the output display to indicate whether we gain or loose pizza if we choose pizza 2.
+
+// 1. Write a function `updateOutputColor` with two parameters: `size1` and `size2`.
+// 2. Set the background color of the `outputSection` to "var(--red)", if we loose pizza. Otherwise, the background color should be set to "var(--green)"
+// 3. Use this function in both event listeners with the correct sizes as arguments.
+
+//    > 💡 `var(--<variable-name>)` is how you can use predefined variables in CSS. In this case, both color codes are stored in the variables `--red` and `--green` on the `:root` element of the HTML document (have a look into the CSS file!).
 
 function updateOutputColor(size1, size2) {
   // write your code here
