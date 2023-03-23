@@ -4,7 +4,7 @@ Progress Bar
 
 Build a progress bar that indicates how much the user has scrolled down the page.
 For that:
- - change the starting width of the progressBar in the CSS file to 0%
+ - change the starting width of the progressBar in the CSS file to 0% // CHECK
  - write a function "calculateScrollPercentage" which calculates and returns in percent
    how far the user has scrolled down the page.
    Use the following attributes to achieve this:
