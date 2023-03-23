@@ -15,7 +15,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // --v-- write your code here --v--
-
+  const form = event.target.elements;
+  const checkbox = form.tos.checked;
+  console.log("checkbox:", checkbox);
+  if (checkbox 
   // --^-- write your code here --^--
 
   // eslint-disable-next-line no-alert
