@@ -2,10 +2,10 @@
 
 // Use the following guidelines:
 
-// - First and last name are required and are allowed to have at least 4 and up to 30 characters.
-// - The user needs to be at least 14 years old.
-// - We need a correct email adress (i.e. including an `@` symbol) for contacting the user.
-// - It's necessary that the user has read the terms of service and agrees to them.
+// - First and last name are required and are allowed to have at least 4 and up to 30 characters. // CHECK 
+// The user needs to be at least 14 years old. // CHECK
+// - We need a correct email adress (i.e. including an `@` symbol) for contacting the user. // CHECK 
+// - It's necessary that the user has read the terms of service and agrees to them. CHECK
 
 // Switch to the [`index.html`](./index.html) file and validate the form in the mentioned way! -->
 
@@ -43,6 +43,8 @@
             name="firstName"
             id="first-name"
             placeholder="Your first name"
+            minlength="4"
+            maxlength="30"
           />
 
           <label for="last-name">Last Name</label>
@@ -51,13 +53,15 @@
             name="lastName"
             id="last-name"
             placeholder="Your last name"
+            minlength="4"
+            maxlength="30"
           />
 
           <label for="age">Age</label>
-          <input type="number" name="age" id="age" />
+          <input type="number" name="age" id="age" min="14" />
 
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input type="email" name="email" id="email" />
         </fieldset>
 
         <fieldset>
@@ -101,6 +105,7 @@
               type="checkbox"
               name="terms-of-service"
               id="terms-of-service"
+              required
             />
             I have read the terms of service and agree to sell my soul
             <a
