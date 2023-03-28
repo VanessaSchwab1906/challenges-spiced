@@ -135,13 +135,24 @@ const canvas = document.querySelector('[data-js="canvas"]');
 
 // - use `for` OF loops to generate the pixel elements
 
-for (outerArray of pixelValues) {
-  // console.log(outerArray);
-  for (innerArray of outerArray) {
-    console.log(innerArray);
+// for (outerArray of pixelValues) {
+//   // console.log(outerArray);
+//   for (innerArray of outerArray) {
+//     console.log(innerArray);
+//     const div = document.createElement("div");
+//     div.classList.add("pixel");
+//     div.style.backgroundColor = outerArray;
+//     canvas.appendChild(div);
+//   }
+// }
+
+for (let i = 0; i < pixelValues.length; i++) {
+  const div = document.createElement("div");
+  div.classList.add("pixel");
+  for (let val of pixelValues[i].length) {
     const div = document.createElement("div");
     div.classList.add("pixel");
-    div.style.backgroundColor = outerArray;
+    // div.style.backgroundColor = val;
     canvas.appendChild(div);
   }
 }
