@@ -34,25 +34,28 @@ console.clear();
 
 const starContainer = document.querySelector('[data-js="star-container"]');
 
-function renderStars() {
+function renderStars(filledStar) {
   // reset the star container before rerendering stars
   starContainer.innerHTML = "";
 
   //--v-- your code here --v--
-// - Use a for loop inside the function to repeat the following code five times.
-//   💡 Start the loop with the value 1, not with 0
-// - Inside the for loop, create an image Element and set the "src" attribute to the path of the empty star image ("assets/star-empty.svg")
-// - append the star to the "starContainer".
 
-for (let star = 1; star < ; star++) {
-  document.createElement("img");
-  img.src = "assets/star-empty.svg";
-  starContainer.append(star);
-}
-
+  for (let i = 1; i < 6; i++) {
+    const emptyStar = document.createElement("img");
+    if (filledStar < i) {
+      emptyStar.setAttribute("src", "./assets/star-filled.svg");
+    } else {
+      emptyStar.setAttribute("src", "./assets/star-empty.svg");
+    }
+    emptyStar.addEventListener("click", () => {
+      console.log("clicked on a star");
+      renderStars(i);
+      // console.log(i);
+    });
+    starContainer.append(emptyStar);
+  }
 
   //--^-- your code here --^--
 }
 
-renderStars();
-
+renderStars(3);
