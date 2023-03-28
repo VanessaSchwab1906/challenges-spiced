@@ -133,15 +133,15 @@ const pixelValues = [
 
 const canvas = document.querySelector('[data-js="canvas"]');
 
-// - use `for` loops to generate the pixel elements
-for (let i = 0; i < pixelValues.length; i++) {
-  for (let j = 0; j < pixelValues[i].length; j++) {
-    console.log(pixelValues[i][j]);
-  }
-  // - pixels should be a `div` element with the class `pixel` and the background color set to respective color from the `pixelValues` array.
+// - use `for` OF loops to generate the pixel elements
 
-  const pixels = document.createElement("div");
-  pixels.classList.add("pixel");
-  pixels.style.backgroundColor = pixelValues[i][j];
-  canvas.appendChild(pixels);
+for (outerArray of pixelValues) {
+  // console.log(outerArray);
+  for (innerArray of outerArray) {
+    console.log(innerArray);
+    const div = document.createElement("div");
+    div.classList.add("pixel");
+    div.style.backgroundColor = outerArray;
+    canvas.appendChild(div);
+  }
 }
