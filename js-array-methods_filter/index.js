@@ -23,13 +23,31 @@ const cards = [
   },
 ];
 
-const onlyCardWithIdTwo = null;
+// And now it's your turn: delete the value `null` and write code such that the variables have a value corresponding to their name. Use `filter` to achieve this goal.
 
-const allCardsWith3Tags = null;
+const onlyCardWithIdTwo = cards.filter((card) => {
+  return card.id === "2";
+});
 
-const allCardsThatAreNotBookmarked = null;
+// console.log(onlyCardWithIdTwo);
 
-const allCardsWithTagsHTMLOrJSThatAreBookmarked = null;
+const allCardsWith3Tags = cards.filter((card) => {
+  return card.tags.length === 3;
+});
+
+// console.log(allCardsWith3Tags);
+
+const allCardsThatAreNotBookmarked = cards.filter((card) => {
+  return card.isBookmarked === false;
+});
+
+// console.log(allCardsThatAreNotBookmarked);
+
+const allCardsWithTagsHTMLOrJSThatAreBookmarked = cards.filter((card) => {
+  return card.isBookmarked === true && card.tags.includes("js" || "html");
+});
+
+// console.log(allCardsWithTagsHTMLOrJSThatAreBookmarked);
 
 export {
   onlyCardWithIdTwo,
