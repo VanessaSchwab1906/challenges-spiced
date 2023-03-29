@@ -19,4 +19,14 @@ const colors = [
   "#A5A5A5",
 ];
 
-colors.forEach();
+// - For each hex code a new `div` with the class `color-box` should be created.
+// - The `background-color` of the `div` should be the current hex code.
+// - The element should be added to the page.
+
+colors.forEach((color) => {
+  const colorElement = document.createElement("div");
+  colorElement.classList.add("color-box");
+  console.log(colorElement);
+  colorElement.style.backgroundColor = color;
+  document.body.append(colorElement);
+});
