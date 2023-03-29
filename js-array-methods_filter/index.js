@@ -44,7 +44,10 @@ const allCardsThatAreNotBookmarked = cards.filter((card) => {
 // console.log(allCardsThatAreNotBookmarked);
 
 const allCardsWithTagsHTMLOrJSThatAreBookmarked = cards.filter((card) => {
-  return card.isBookmarked === true && card.tags.includes("js" || "html");
+  return (
+    (card.isBookmarked === true && card.tags.includes("js")) ||
+    cards.tags.includes("html")
+  );
 });
 
 // console.log(allCardsWithTagsHTMLOrJSThatAreBookmarked);
