@@ -42,6 +42,7 @@ function renderStars(filledStar) {
 
   for (let i = 1; i < 6; i++) {
     const emptyStar = document.createElement("img");
+    emptyStar.setAttribute("src", "./assets/star-empty.svg");
     if (filledStar < i) {
       emptyStar.setAttribute("src", "./assets/star-filled.svg");
     } else {
