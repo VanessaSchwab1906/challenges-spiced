@@ -29,6 +29,15 @@ async function checkIfApiIsAvailable() {
    * is okay and false if it is not.
    **/
   // --v-- write your code here --v--
+  icon.textContent = "⏳";
+  try {
+    const responseObject = await fetch(apiStatusUrl);
+    if (responseObject.ok) {
+      return (icon.textContent = "✅");
+    } else return (icon.textContent = "❌");
+  } catch (error) {
+    console.error(error);
+  }
   // --^-- write your code here --^--
 }
 
