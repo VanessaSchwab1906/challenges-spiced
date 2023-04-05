@@ -50,6 +50,6 @@ export function getFullNamesSortedByAge(people) {
     lastName: person.lastName,
     age: person.age,
   }));
-  const namesSortedByAge = nameWithAge.sort((a, b) => a.age - b - age);
+  const namesSortedByAge = nameWithAge.sort((a, b) => a.age - b.age);
   return namesSortedByAge;
 }
