@@ -55,5 +55,5 @@ console.log(result);
 
 const fruits = ["apple", "banana", "orange", "papaya"];
 const anotherFruit = "cherry";
-const allFruits = [...fruits, anotherFruit];
+const allFruits = [anotherFruit, ...fruits];
 console.log(allFruits);
