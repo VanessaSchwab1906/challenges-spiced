@@ -1,14 +1,23 @@
+// ## Hints
+
+// - Use the variable names given in the task to destructure the given object.
+// - The value can correspond to a simple data type as well as to an object.
+// - Make sure to export the variable you have declared in order to make the tests work.
+
 console.clear();
 
 // EXERCISE 1
 // Extract only the course name from the company object.
 // Make sure to export your variable as in the example below to make the tests work.
 
-const company = {
-  name: "neuefische",
-  course: "Web Development",
-  location: "Hamburg",
-};
+// const company = {
+//   name: "neuefische",
+//   course: "Web Development",
+//   location: "Hamburg",
+// };
+
+const { course } = company;
+console.log(course);
 
 // example: export const {value1} = myObject;
 
@@ -20,6 +29,8 @@ const company = {
 //  2.3: 'isAdmin' property into the variable 'isAdmin' (false, if no such property exists)
 
 const user = { name: "John", years: 30 };
+const { name: name, years: age, isAdmin = false } = user;
+console.log(name, age, isAdmin);
 
 // EXERCISE 3
 // Extract the variables from the dog object and
@@ -31,6 +42,9 @@ const dog = {
   age: 5,
 };
 
+const { name: dogName, breed: dogBreed, age: dogAge } = dog;
+console.log(dogName, dogBreed, dogAge);
+
 // EXERCISE 4
 // Extract the 'lastName' property from the person object as "personLastName".
 // Store all other properties in an object called "moreInformation".
@@ -40,3 +54,6 @@ const person = {
   age: 24,
   firstName: "Alex",
 };
+
+const { lastName: personLastName, ...moreInformation } = person;
+console.log(personLastName, moreInformation);
