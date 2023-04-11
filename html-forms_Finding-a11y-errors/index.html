@@ -1,0 +1,46 @@
+<!-- 
+  - How do you connect a form with its headline? // CHECK 
+- How do you link a description to a specific <fieldset> element? // CHECK
+- Do all interactive fields have their own label? // CHECK
+- Are all labels linked to their interactive fields with the help of the correct attributes? // CHECK
+- Does this connections works correctly?
+  - To check this, go to your browser and click on the label; the corresponding input field should now be focused.
+  - If not, did we make a spelling mistake? // CHECK
+- Do we need the given placeholder? // CHECK (removed cause I put a label to it)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Forms and A11y</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <section>
+      <h1 class="title">Understanding A11y in Forms</h1>
+      <p id="description">
+        Please let us know how we can support you with a11y issues.
+      </p>
+
+      <form for="title" aria-labelledby="title">
+        <fieldset aria-labelledby="description">
+          <legend>Enter your information</legend>
+          <label for="name-input">Name:</label>
+          <input id="name-Input" type="text" name="name" />
+          <label for="age-input">Age:</label>
+          <input id="age-input" type="text" name="age" />
+          <label for="color-input">Color you cannot see:</label>
+          <input id="color-input" type="color" name="color" />
+          <label for="text-area">Please leave us a message:</label>
+          <textarea rows="7" id="text-area"></textarea>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </section>
+  </body>
+</html>
