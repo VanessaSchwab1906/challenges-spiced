@@ -12,6 +12,7 @@ function App() {
         <EntryForm />
         <EntriesSection />
       </main>
+      {console.log("after entry section")}
       <Footer />
     </div>
   );
