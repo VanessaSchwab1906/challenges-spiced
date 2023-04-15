@@ -1,11 +1,15 @@
 import { useState } from "react";
 
-export default function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+// 1. Extend the `handleSubmit` function to set the `name` and `email` state to its corresponding form field values.
+// 2. Reset the form after submit.
+
+export default function Form({ onCreateUser }) {
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
+    onCreateUser(event.target.name.value, event.target.email.value);
   }
 
   return (
