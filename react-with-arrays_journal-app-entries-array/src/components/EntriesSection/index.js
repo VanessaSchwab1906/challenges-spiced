@@ -54,15 +54,17 @@ export default function EntriesSection() {
       </Tabs>
 
       <div className="entries-section__entries">
-        {entries.map(({ id, date, motto, notes }, i) => (
-          <>
+        {entries.map(({ id, date, motto, notes }, i) => {
+          return i + 1 === entries.length ? (
             <Entry key={id} date={date} motto={motto} notes={notes} />
-            {console.log("whatever", id)}
-            <Divider key={i}></Divider>
-          </>
-        ))}
+          ) : (
+            <>
+              <Entry key={id} date={date} motto={motto} notes={notes} />
+              <Divider></Divider>
+            </>
+          );
+        })}
       </div>
-      {console.log("between div and entry")}
     </section>
   );
 }
