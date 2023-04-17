@@ -5,6 +5,7 @@ import Tabs from "../Tabs";
 import Tab from "../Tab";
 import Badge from "../Badge";
 import { Fragment } from "react";
+import { useState } from "react";
 
 // - Rename the variable to `initialEntries` to reflect this is the initial value for the state.
 // - Create a new state called `entries` with `initialEntries` as initial value.
@@ -43,7 +44,6 @@ const initialEntries = [
 // - Pass the `entries` state via the `entries` prop down to the `EntriesSection`.
 
 export default function EntriesSection({ entries }) {
-  const [entries, setEntries] = useState(initialEntries);
   return (
     <section className="entries-section">
       <Tabs>
@@ -55,7 +55,7 @@ export default function EntriesSection({ entries }) {
         </Tab>
       </Tabs>
       <div className="entries-section__entries">
-        {initialEntries.map((entry, index) => (
+        {entries.map((entry, index) => (
           <Fragment key={entry.id}>
             {index > 0 ? <Divider /> : null}
             <Entry date={entry.date} motto={entry.motto} notes={entry.notes} />

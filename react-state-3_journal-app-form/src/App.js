@@ -51,11 +51,11 @@ const initialEntries = [
 
 function App() {
   const [entries, setEntries] = useState(initialEntries);
-  function handleAddEntry(newEntry) {
-    const date = new Date().toLocaleDateString("en-us", {
+  function handleAddEntry(entry) {
+    const entryDate = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
-    setEntries([...newEntry, date, { id: uid(), ...entries }]);
+    setEntries([{ id: uid(), date: entryDate, ...entry }, ...entries]);
   }
 
   return (
@@ -63,7 +63,7 @@ function App() {
       <Header />
       <main className="app__main">
         <EntryForm onAddEntry={handleAddEntry} />
-        <EntriesSection />
+        <EntriesSection entries={entries} />
       </main>
       <Footer />
     </div>
