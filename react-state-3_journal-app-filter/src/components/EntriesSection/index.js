@@ -6,15 +6,36 @@ import Tab from "../Tab";
 import Badge from "../Badge";
 import { Fragment } from "react";
 
-export default function EntriesSection({ entries, onToggleFavorite }) {
+// The component having both buttons needs to expose two events - one event for each button.
+
+// - Add two new props to the function declaration of this component: `onShowAllEntries` and `onShowFavoriteEntries`
+// - Pass the respective prop to the `onClick` prop on the filter buttons
+
+// Both buttons are now able to inform their parent component when they are clicked! 🚀
+
+export default function EntriesSection({
+  entries,
+  filter,
+  onToggleFavorite,
+  onShowAllEntries,
+  onShowFavoriteEntries,
+  allEntriesCount,
+  favoriteEntriesCount,
+}) {
   return (
     <section className="entries-section">
       <Tabs>
-        <Tab active>
-          All Entries <Badge isActive>3</Badge>
+        <Tab active onClick={onShowAllEntries}>
+          All Entries{" "}
+          <Badge isActive={filter === "all" ? true : false}>
+            {allEntriesCount}
+          </Badge>
         </Tab>
-        <Tab>
-          Favorites <Badge>1</Badge>
+        <Tab onClick={onShowFavoriteEntries}>
+          Favorites{" "}
+          <Badge isActive={filter === "favorites" ? true : false}>
+            {favoriteEntriesCount}
+          </Badge>
         </Tab>
       </Tabs>
       <div className="entries-section__entries">

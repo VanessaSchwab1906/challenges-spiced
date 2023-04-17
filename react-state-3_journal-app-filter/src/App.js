@@ -36,8 +36,20 @@ const initialEntries = [
   },
 ];
 
+// - Create a new state called `filter`, which stores a string with `"all"` as initial value.
+// - Create a function called `handleShowFavoriteEntries` which sets the `filter` state to `"favorites"`.
+// - Create a function called `handleShowAllEntries` which sets the `showFavorites` state to `"all"`.
+// - Pass the two functions down to the `EntriesSection` component via the props `onShowAllEntries` and `onShowFavoriteEntries` you introduced earlier
+
+// - Besides the `entries` array which is stored in state, create a new array called `favoriteEntries`, which **should not** be stored in state.
+// - The value of `favoriteEntries` should be all element from the `entries` array where `isFavorite` is `true` (hint: you can use the array method `filter`).
+
 function App() {
   const [entries, setEntries] = useState(initialEntries);
+
+  let favoriteEntries = entries.filter((entry) => entry.isFavorite === true);
+
+  const [filter, setFilter] = useState("all");
 
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {
@@ -54,14 +66,27 @@ function App() {
     );
   }
 
+  function handleShowAllEntries() {
+    setFilter("all");
+  }
+
+  function handleShowFavoriteEntries() {
+    setFilter("favorites");
+  }
+
   return (
     <div className="app">
       <Header />
       <main className="app__main">
         <EntryForm onAddEntry={handleAddEntry} />
         <EntriesSection
-          entries={entries}
+          entries={filter === "all" ? entries : favoriteEntries}
+          filer={filter}
           onToggleFavorite={handleToggleFavorite}
+          onShowAllEntries={handleShowAllEntries}
+          onShowFavoriteEntries={handleShowFavoriteEntries}
+          allEntriesCount={entries.length}
+          favoriteEntriesCount={favoriteEntries.length}
         />
       </main>
       <Footer />
