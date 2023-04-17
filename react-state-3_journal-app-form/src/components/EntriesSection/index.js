@@ -6,7 +6,10 @@ import Tab from "../Tab";
 import Badge from "../Badge";
 import { Fragment } from "react";
 
-const entries = [
+// - Rename the variable to `initialEntries` to reflect this is the initial value for the state.
+// - Create a new state called `entries` with `initialEntries` as initial value.
+
+const initialEntries = [
   {
     id: 1000,
     date: "Feb 5, 2025",
@@ -35,8 +38,12 @@ const entries = [
     notes: "My React-ion when I learned about React: Yay!",
   },
 ];
+// - Update the function declaration of the `EntriesSection` component to accept a new prop called `entries`.
+// - Move the `initialEntries` and the state to their common ancestor, e.g. `App`.
+// - Pass the `entries` state via the `entries` prop down to the `EntriesSection`.
 
-export default function EntriesSection() {
+export default function EntriesSection({ entries }) {
+  const [entries, setEntries] = useState(initialEntries);
   return (
     <section className="entries-section">
       <Tabs>
@@ -48,7 +55,7 @@ export default function EntriesSection() {
         </Tab>
       </Tabs>
       <div className="entries-section__entries">
-        {entries.map((entry, index) => (
+        {initialEntries.map((entry, index) => (
           <Fragment key={entry.id}>
             {index > 0 ? <Divider /> : null}
             <Entry date={entry.date} motto={entry.motto} notes={entry.notes} />
