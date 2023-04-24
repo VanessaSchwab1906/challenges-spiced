@@ -9,17 +9,21 @@ import Input from ".";
 // - You can check how often a function has been called with `toHaveBeenCalledTimes(numberOfExpectedCalls)`.
 
 test("renders a label and an input with the correct attributes", () => {
-  render(<Input />);
-  const inputGame = screen.getByLabelText(/Name of game/i);
-  const inputName = screen.getByLabelText(/Player names, seperated by comma/i);
-  expect(inputGame).toBeInTheDocument();
-  expect(inputName).toBeInTheDocument();
+  render(<Input labelText="Name" name="name" placeholder="placeholder" />);
+  const input = screen.getByLabelText("Name");
+  expect(input).toHaveAttribute("name", "name");
+  expect(input).toHaveAttribute("placeholder", "placeholder");
 });
 
-// test("calls callback on every user input", async () => {
-//   // mock functions
-//   const onChange = jest.fn();
-//   const user = userEvent.setup();
+test("calls callback on every user input", async () => {
+  // mock functions
+  const handleChange = jest.fn();
+  const user = userEvent.setup();
 
-//   render(<Input onChange={onChange} />);
-// });
+  render(<Input onChange={handleChange} labelText="Name" name="name" />);
+  const input = screen.getByLabelText("Name");
+
+  await user.type(input, "Test");
+
+  expect(handleChange).toHaveBeenCalledTimes(4);
+});
