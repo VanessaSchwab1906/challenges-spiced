@@ -2,6 +2,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import HistoryEntry from ".";
 
+// Check the [`HistoryEntry.test.js`](components/HistoryEntry/HistoryEntry.test.js), it offers two test cases with their acceptance criteria:
+
+// - "renders name of game and 'show score' button only"
+// - "renders player names and scores after button click"
+
+// Run `npm run test`; you will notice that both tests fail. Read the error message carefully and fix the bug in [`HistoryEntry/index.js`](components/HistoryEntry/index.js) so that the test passes again. (The tests are correct, but there is something wrong with the component)
+
 test("renders name of game and 'show score' button only", () => {
   render(
     <HistoryEntry
