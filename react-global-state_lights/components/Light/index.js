@@ -1,25 +1,23 @@
 import { useState } from "react";
 import { LightButton, Icon, Text, Name, State } from "./Light.styled";
 
-export default function Light({ name }) {
-  const [isOn, setIsOn] = useState(false);
+// - Change `Light` component to receive at least `isOn`, `name`, `onToggle` as props and remove the internal state from the component.
 
-  function handleToggle() {
-    setIsOn((isOn) => !isOn);
-  }
+export default function Light({ light, toggleLight }) {
+  // const [isOn, setIsOn] = useState(false);
 
   return (
     <LightButton
       type="button"
       onClick={() => {
-        handleToggle();
+        toggleLight(light.id, light.isOn);
       }}
-      isOn={isOn}
+      isOn={light.isOn}
     >
-      <Icon isOn={isOn}>💡</Icon>
+      <Icon isOn={light.isOn}>💡</Icon>
       <Text>
-        <Name>{name}</Name>
-        <State>{isOn ? "On" : "Off"}</State>
+        <Name>{light.name}</Name>
+        <State>{light.isOn ? "On" : "Off"}</State>
       </Text>
     </LightButton>
   );
