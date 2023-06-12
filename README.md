@@ -8,4 +8,5 @@ These are all challenges I did during my 12-weeks Full-Stack Development Bootcam
 - JavaScript
 - React.js
 - Next.js
+- MongoDB
 
